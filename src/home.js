@@ -1,36 +1,40 @@
+import { changeToMenu } from "./buttonListeners.js";
+
 const homePage = () => {
   const content = document.querySelector("#content");
 
-  const bgimg = document.createElement("div");
-  bgimg.classList.add("bgimg");
-  content.appendChild(bgimg);
+  const newActive = document.getElementById("home");
+  newActive.classList.add("active");
 
-  const cafe = document.createElement("div");
-  cafe.classList.add("cafe");
-  const pCafe = document.createElement("p");
-  pCafe.innerText = "cafe";
-  cafe.appendChild(pCafe);
-  bgimg.appendChild(cafe);
+  const main = document.createElement("main");
+  const div = document.createElement("div");
+  const h2 = document.createElement("h2");
+  const h1 = document.createElement("h1");
+  const breakfast = document.createElement("span");
+  const coffee = document.createElement("span");
+  const pancakes = document.createElement("span");
+  const button = document.createElement("button");
 
-  const nav = document.createElement("div");
-  nav.classList.add("nav");
-  const menuButton = document.createElement("button");
-  const contactButton = document.createElement("button");
-  menuButton.innerText = "menu";
-  contactButton.innerText = "contact";
-  nav.appendChild(menuButton);
-  nav.appendChild(contactButton);
-  bgimg.appendChild(nav);
+  main.classList.add("main-home");
+  h2.innerHTML = "We offer the best";
+  breakfast.innerHTML = "breakfast.";
+  coffee.innerHTML = " coffee.";
+  pancakes.innerHTML = " pancakes.";
+  button.classList.add("menu-button");
+  button.innerHTML = "View our menu";
+  button.addEventListener("click", () => {
+    content.innerHTML = "";
+    changeToMenu();
+  });
 
-  const hours = document.createElement("div");
-  hours.classList.add("hours");
-  const pTimes = document.createElement("p");
-  const pLocation = document.createElement("p");
-  pTimes.innerText = "monday - friday 7am - 9pm";
-  pLocation.innerText = "42 princess St, shepherdstown";
-  hours.appendChild(pTimes);
-  hours.appendChild(pLocation);
-  bgimg.appendChild(hours);
+  content.appendChild(main);
+  main.appendChild(div);
+  div.appendChild(h2);
+  div.appendChild(h1);
+  h1.appendChild(breakfast);
+  h1.appendChild(coffee);
+  h1.appendChild(pancakes);
+  div.appendChild(button);
 };
 
 export default homePage;

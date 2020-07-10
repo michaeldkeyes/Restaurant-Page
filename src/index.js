@@ -1,3 +1,7 @@
-import homePage from "./home.js";
+import nav from "./nav.js";
+import home from "./home.js";
 
-document.addEventListener("load", homePage());
+nav();
+const homeNav = document.getElementById("home");
+homeNav.classList.add("active");
+home();
